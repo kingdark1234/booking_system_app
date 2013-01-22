@@ -1,0 +1,45 @@
+<div class="container" style="background: #e5e5e5; border: 1px solid #f5f5f5;"><h1>New Room</h1>
+<%= form_for @event, html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_log', target: @event %>
+  <div class='control-group'>
+    <%= f.label "Event Name:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :name, class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Description:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :event_description, class: 'input-xxlarge', size: '10x10' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Room:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.select :eventable_id, Room.all.map { |room| [room.room_name,room.id]  },class: 'input-xxlarge' %>
+    </div>
+  </div>  
+  <div class='control-group'>
+    <%= f.label "Start:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.datetime_select :start_at,:default=>Time.now , class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "End:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.datetime_select :end_at,:default=>Time.now , class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Status:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.select :status,options_for_select([["Select One", ""], "Confirm", "Not Confirm"]),class: 'input-xxlarge' %>
+    </div>
+  </div>
+  
+  <div class='form-actions'>
+    <%= f.submit "Create Event", class: 'btn btn-success' %>
+  </div>
+<% end %>
+</div>

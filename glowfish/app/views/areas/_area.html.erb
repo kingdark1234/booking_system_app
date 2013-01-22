@@ -1,0 +1,18 @@
+<h1>&nbsp;Areas List <span class='pull-right'> <%= link_to "New Area", new_area_path, class: 'btn btn-primary' %> </span> </h1>
+<% @areas.each do |area| %>
+	<%= content_tag_for :div , area, class: 'row-fluid' do %>
+	<div id="ar-index_content">
+	<li>
+	  <span class='span9' >
+	    <%= link_to area.area_name, area ,{:style => 'color: #000000'} %> 
+	  </span>
+	  <span class='span3'>
+	    <span class='pull-right'>
+	      <%= link_to "Edit", edit_area_path(area), class: 'btn btn-mini' %> 
+	      <%= link_to "Delete", area_path(area), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-mini btn-danger' %>
+	    </span>
+	  </span>
+	 </li>
+	</div>
+	<% end %>
+<% end %>

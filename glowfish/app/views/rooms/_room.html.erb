@@ -1,0 +1,18 @@
+<h1>&nbsp;Rooms List <span class='pull-right'> <%= link_to "New Room", new_room_path, class: 'btn btn-primary' %> </span> </h1>
+<% @rooms.each do |room| %>
+    <%= content_tag_for :div , room, class: 'row-fluid' do %>
+		<div id="r-index_content">
+		<li>
+		  <span class='span9' >
+		    <%= link_to room.room_name, room ,{:style => 'color: #000000'} %> 
+		  </span>
+		  <span class='span3'>
+		    <span class='pull-right'>
+		      <%= link_to "Edit", edit_room_path(room), class: 'btn btn-mini' %> 
+		      <%= link_to "Delete", room_path(room), method: :delete, data: { confirm: "Are you sure to delete this room?" }, class: 'btn btn-mini btn-danger' %>
+		    </span>
+		  </span>
+		 </li>
+		</div>
+	<% end %>
+<% end %>

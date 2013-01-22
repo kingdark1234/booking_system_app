@@ -1,0 +1,15 @@
+<%if @room.is_active == 1 then @active="yes" else @active="no" end%>
+<div id="r-Border" class="container" style="background: #e5e5e5; border: 10px solid #8fc400;">
+<h1>&nbsp;<%= @room.room_name %>
+<span class='pull-center'>
+	<% if (current_user != nil)%>
+    		<%= link_to "Edit", edit_room_path(@room.id), class: 'btn btn-mini' %> 
+			<%= link_to "Delete", rooms_path(@room.id), method: :delete, data: { confirm: "Are you sure to delete this room?" }, class: 'btn btn-mini btn-danger' %>
+		<% end %>
+</span></h1>
+<div>
+  <div id ="r-show_content" class ="span11"><%= @room.room_description %></div>
+  <div id ="r-show_content" class ="span11">Capacity:<%= @room.capacity %></div>
+   <div id ="r-show_content" class ="span11">Active:<%= @active %><div>
+</div>
+</div>

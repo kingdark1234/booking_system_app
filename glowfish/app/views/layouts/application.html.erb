@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Glowfish</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body  class="<%= body_class %>">
+ <%= render 'layouts/navigation_bar' %>
+ <div class="row-fluid">
+    <div class="span6">Building:<% Area.all.each do |area| puts area%>
+    	<%= link_to area.area_name, area_path(id: area.id),class: "btn btn-info #{'active' if params[:id] == area.id}" %>
+    <% end %>
+    </div>
+    <div class="btn btn-large" type="button"><i class="icon-calendar"></i><%= link_to "Week Or Day View", events_path %></div>
+ </div>
+ <div class="row">
+ 	<div id="layout-tab-room"class="span9">Room:<% Room.all.each do |room| puts room%>
+    	<%= link_to room.room_name, room_path(id: room.id),class: "btn btn-info #{'active' if params[:id] == room.id}" %>
+    <% end %>
+	</div>
+ </div>
+</br>
+<% if path = 'roots' || path = 'events'%>
+  <%= yield %>
+<% else %>
+  <div class="container">
+  <%= yield %>
+  </div>
+<%end%>
+
+</body>
+</html>
