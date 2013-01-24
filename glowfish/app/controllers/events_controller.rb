@@ -1,9 +1,6 @@
 class EventsController < ApplicationController
   respond_to :js, :html, :json
-	def index
-		@events = Event.all
-		respond_with @events
-	end
+	
 
 	def show
 		
@@ -17,8 +14,9 @@ class EventsController < ApplicationController
   	    @event = Event.new
  	end
 
- 	def json
- 		respond_with (@event = Event.all)
+ 	def create
+ 		@event = @eventable.event.build(params[:event])
+ 		respond_with @event
  	end
 
  	def update

@@ -15,6 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require areas
-//= require event
+//= require event_week_calendar
 //= require jquery-week-calendar
 //= require jquery.ui.all
