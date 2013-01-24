@@ -1,0 +1,55 @@
+<div class="container" style="background: #e5e5e5; border: 1px solid #f5f5f5;"><h1>New Area</h1>
+<%= form_for @area, html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'shared/error_log', target: @area %>
+  <div class='control-group'>
+    <%= f.label "Area Name", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :area_name, class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Description", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :description, class: 'input-xxlarge', size: '10x10' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Area admin email", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :area_admin_email, class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Resolution:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :resolution, class: 'input-mini', :maxlength => 2 %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label "Start of first slot:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :morningstart, class: 'input-mini', :maxlength => 2 %>:
+      <%= f.text_field :morningstart_min, class: 'input-mini', :maxlength => 2 %>
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label "End of last slot:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :eveningend, class: 'input-mini', :maxlength => 2 %>:
+      <%= f.text_field :eveningend_min, class: 'input-mini', :maxlength => 2 %>
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label "Enabled:", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.check_box :is_active, {checked: true}, '1', '0'%>
+    </div>
+  </div>
+  
+  <div class='form-actions'>
+    <%= f.submit "Create Area", class: 'btn btn-success' %>
+  </div>
+<% end %>
+</div>

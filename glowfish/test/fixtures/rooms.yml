@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  room_name: MyString
+  description: MyText
+  capacity: 1
+  is_active: 1
+
+two:
+  room_name: MyString
+  description: MyText
+  capacity: 1
+  is_active: 1

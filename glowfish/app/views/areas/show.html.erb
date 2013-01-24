@@ -1,0 +1,16 @@
+<%if @area.is_active == 1 then @active="yes" else @active="no" end%>
+<div id="ar-Border" class="container" style="background: #e5e5e5; border: 10px solid #8fc400;">
+<h1>&nbsp;<%= @area.area_name %>
+<span class='pull-center'>
+	<% if (current_user != nil)%>
+    		<%= link_to "Edit", edit_area_path(@area.id), class: 'btn btn-mini' %> 
+			<%= link_to "Delete", areas_path(@area.id), method: :delete, data: { confirm: "Are you sure to delete this area?" }, class: 'btn btn-mini btn-danger' %>
+		<% end %>
+</span></h1>
+<div>
+  <div id ="ar-show_content" class ="span11">Description:<%= @area.description %></div>
+   <div id ="ar-show_content" class ="span11">Admin_Email:<%= @area.area_admin_email %></div>
+   <div id ="ar-show_content" class ="span11">Open <%= @area.morningstart %>:<%= @area.morningstart_min %> - <%= @area.eveningend %>:<%= @area.eveningend_min %></div><br><br>
+   <div id ="ar-show_content" class ="span11">Active:<%= @active %><div>
+</div>
+</div>
